@@ -31,19 +31,25 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void Update () {
-		foreach (Touch touch in Input.touches) {
-			if (touch.phase == TouchPhase.Began) {
-				InvokeRepeating ("Fire", 0.000001f, firingRate);
-			}
-			if (touch.phase == TouchPhase.Ended) {
-				CancelInvoke ("Fire");
-			}
+		if(Input.GetKeyDown(KeyCode.Space)){
+			InvokeRepeating("Fire", 0.0001f, firingRate);
 		}
-
-		transform.Translate (Input.acceleration.x * speed * Time.deltaTime, 0, 0);
-
-		float newX = Mathf.Clamp (transform.position.x, xmin, xmax);
-		transform.position = new Vector3 (newX, transform.position.y, transform.position.z);
+		if(Input.GetKeyUp(KeyCode.Space)){
+			CancelInvoke("Fire");
+		}
+		if(Input.GetKey(KeyCode.LeftArrow)){
+			transform.position = new Vector3(
+				Mathf.Clamp(transform.position.x - speed * Time.deltaTime, xmin, xmax),
+				transform.position.y, 
+				transform.position.z 
+			);
+		}else if (Input.GetKey(KeyCode.RightArrow)){
+			transform.position = new Vector3(
+				Mathf.Clamp(transform.position.x + speed * Time.deltaTime, xmin, xmax),
+				transform.position.y, 
+				transform.position.z 
+			);
+		}
 	}
 		
 

@@ -1,0 +1,9 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "Laser.data.unityweb",
+"asmCodeUrl": "Laser.asm.code.unityweb",
+"asmMemoryUrl": "Laser.asm.memory.unityweb",
+"asmFrameworkUrl": "Laser.asm.framework.unityweb",
+"splashScreenStyle": "Dark",
+"backgroundColor": "#222C36"
+}
